@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberVerifyAI — Yönetim Paneli</title>
+  <meta name="description" content="CyberVerifyAI — Makine Öğrenmesi Tabanlı Siber Tehdit Tespit Sistemi Yönetim Paneli">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>CyberVerifyAI</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-title">Genel</div>
+        <button class="sidebar-link active" data-page="overview" id="nav-overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Genel Bakış
+        </button>
+
+        <div class="sidebar-section-title">Demo</div>
+        <button class="sidebar-link" data-page="simulation" id="nav-simulation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Trafik Simülasyonu
+        </button>
+
+        <div class="sidebar-section-title">Analiz</div>
+        <button class="sidebar-link" data-page="models" id="nav-models">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Model Performansı
+        </button>
+
+        <div class="sidebar-section-title">Bilgi</div>
+        <button class="sidebar-link" data-page="about" id="nav-about">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          Sistem Hakkında
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="https://github.com/AbdullahZeyworking/CyberVerifyAI" target="_blank">GitHub Repo →</a>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <div class="main-content">
+
+      <!-- HEADER -->
+      <header class="page-header">
+        <h1 class="page-title" id="page-title">Genel Bakış</h1>
+        <div class="header-status">
+          <span class="status-dot idle" id="header-dot"></span>
+          <span id="header-status-text">Sistem hazır</span>
+        </div>
+      </header>
+
+      <!-- ==================== OVERVIEW ==================== -->
+      <section id="page-overview" class="page active">
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-label">Toplam Modül</div>
+            <div class="stat-value">3</div>
+            <div class="stat-sub">RECON · SQLI · XSS</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Eğitilen Model</div>
+            <div class="stat-value">18</div>
+            <div class="stat-sub">Modül başına 6 model</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">En Yüksek F1</div>
+            <div class="stat-value green">99.89%</div>
+            <div class="stat-sub">XSS — XGBoost</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Mimari</div>
+            <div class="stat-value blue">L1-L2</div>
+            <div class="stat-sub">Dual-Brain NIPS</div>
+          </div>
+        </div>
+
+        <div class="section-title">Modül Özeti</div>
+
+        <div class="overview-grid">
+          <!-- RECON -->
+          <div class="module-summary">
+            <div class="module-summary-header">
+              <span class="module-tag recon">RECON</span>
+              <span class="module-summary-name">Ağ Anomali Tespiti</span>
+            </div>
+            <div class="module-summary-metrics">
+              <div class="metric-row"><span class="label">En İyi Model</span><span class="value">Random Forest</span></div>
+              <div class="metric-row"><span class="label">F1 Score</span><span class="value">93.99%</span></div>
+              <div class="metric-row"><span class="label">Precision</span><span class="value">94.12%</span></div>
+              <div class="metric-row"><span class="label">Recall</span><span class="value">93.85%</span></div>
+              <div class="metric-row"><span class="label">Özellik Sayısı</span><span class="value">43</span></div>
+              <div class="metric-row"><span class="label">Veri Boyutu</span><span class="value">~1.1M satır</span></div>
+            </div>
+          </div>
+
+          <!-- SQLI -->
+          <div class="module-summary">
+            <div class="module-summary-header">
+              <span class="module-tag sqli">SQLI</span>
+              <span class="module-summary-name">SQL Injection Tespiti</span>
+            </div>
+            <div class="module-summary-metrics">
+              <div class="metric-row"><span class="label">En İyi Model</span><span class="value">LightGBM</span></div>
+              <div class="metric-row"><span class="label">F1 Score</span><span class="value">99.56%</span></div>
+              <div class="metric-row"><span class="label">Precision</span><span class="value">99.60%</span></div>
+              <div class="metric-row"><span class="label">Recall</span><span class="value">99.52%</span></div>
+              <div class="metric-row"><span class="label">Özellik Sayısı</span><span class="value">28 + TF-IDF</span></div>
+              <div class="metric-row"><span class="label">Eğitim Süresi</span><span class="value">18s</span></div>
+            </div>
+          </div>
+
+          <!-- XSS -->
+          <div class="module-summary">
+            <div class="module-summary-header">
+              <span class="module-tag xss">XSS</span>
+              <span class="module-summary-name">XSS Tespiti</span>
+            </div>
+            <div class="module-summary-metrics">
+              <div class="metric-row"><span class="label">En İyi Model</span><span class="value">XGBoost</span></div>
+              <div class="metric-row"><span class="label">F1 Score</span><span class="value">99.89%</span></div>
+              <div class="metric-row"><span class="label">Precision</span><span class="value">99.90%</span></div>
+              <div class="metric-row"><span class="label">Recall</span><span class="value">99.89%</span></div>
+              <div class="metric-row"><span class="label">Özellik Sayısı</span><span class="value">43</span></div>
+              <div class="metric-row"><span class="label">False Positive</span><span class="value">%0</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TRAFFIC SIMULATION ==================== -->
+      <section id="page-simulation" class="page">
+
+        <div class="section-desc">
+          Simülasyon başlatıldığında önce normal ağ trafiği akışı gözlemlenir. Tüm paketler L1 ve L2 denetim katmanlarından
+          geçerek güvenli olarak işaretlenir. Ardından sırasıyla RECON, SQLI ve XSS saldırı senaryoları başlar ve
+          modellerin bu saldırıları nasıl tespit ettiği adım adım gösterilir.
+        </div>
+
+        <!-- Pipeline Diagram -->
+        <div class="pipeline-diagram" id="pipeline-diagram">
+          <div class="pipe-node" id="pipe-source">
+            <div class="pipe-node-icon">📨</div>
+            <div class="pipe-node-label">Kaynak</div>
+            <div class="pipe-node-detail">Gelen paket</div>
+          </div>
+          <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+          <div class="pipe-node" id="pipe-features">
+            <div class="pipe-node-icon">🔬</div>
+            <div class="pipe-node-label">Özellik Çıkarımı</div>
+            <div class="pipe-node-detail">Feature extraction</div>
+          </div>
+          <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+          <div class="pipe-node" id="pipe-l1">
+            <div class="pipe-node-icon">🧠</div>
+            <div class="pipe-node-label">L1 Motor</div>
+            <div class="pipe-node-detail">AI sınıflandırma</div>
+          </div>
+          <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+          <div class="pipe-node" id="pipe-l2">
+            <div class="pipe-node-icon">⚖️</div>
+            <div class="pipe-node-label">L2 Denetçi</div>
+            <div class="pipe-node-detail">Anayasal kontrol</div>
+          </div>
+          <div class="pipe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+          <div class="pipe-node" id="pipe-decision">
+            <div class="pipe-node-icon">📋</div>
+            <div class="pipe-node-label">Karar</div>
+            <div class="pipe-node-detail">Allow / Drop</div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="sim-controls">
+          <button class="btn btn-primary" id="btn-start-sim" onclick="startSimulation()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Simülasyonu Başlat
+          </button>
+          <button class="btn" id="btn-reset-sim" onclick="resetSimulation()" disabled>Sıfırla</button>
+          <span class="sim-status-text" id="sim-status">Hazır — butona tıklayarak başlatın</span>
+        </div>
+
+        <!-- Traffic Log -->
+        <div class="traffic-log-wrapper">
+          <div class="card-header">
+            <span class="card-title">Trafik Günlüğü</span>
+            <span class="sim-status-text" id="log-counter">0 kayıt</span>
+          </div>
+          <div class="traffic-log" id="traffic-log">
+            <div class="log-entry">
+              <span class="log-time">--:--:--</span>
+              <span class="log-badge info">SYS</span>
+              <span class="log-msg">Simülasyon başlatılmadı. "Simülasyonu Başlat" butonuna tıklayın.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary (shown after sim completes) -->
+        <div id="sim-summary" style="display:none;">
+          <div class="section-title">Simülasyon Özeti</div>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <div class="summary-number" style="color:var(--text-primary)" id="sum-total">0</div>
+              <div class="summary-label">Toplam Paket</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-number" style="color:var(--green)" id="sum-safe">0</div>
+              <div class="summary-label">Güvenli (ALLOW)</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-number" style="color:var(--red)" id="sum-threat">0</div>
+              <div class="summary-label">Tehdit (DROP)</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-number" style="color:var(--green)" id="sum-accuracy">0%</div>
+              <div class="summary-label">Tespit Doğruluğu</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== MODEL PERFORMANCE ==================== -->
+      <section id="page-models" class="page">
+        <div class="section-desc">Her modülde eğitilen 6 modelin performans metriklerini karşılaştırın.</div>
+
+        <div class="model-tabs" id="model-tabs">
+          <button class="model-tab active" data-module="recon">RECON</button>
+          <button class="model-tab" data-module="sqli">SQLI</button>
+          <button class="model-tab" data-module="xss">XSS</button>
+        </div>
+
+        <div class="card" style="padding:0; overflow:hidden;">
+          <table class="data-table" id="model-table">
+            <thead><tr></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="charts-row">
+          <div class="chart-box">
+            <h4>F1 Score Karşılaştırması</h4>
+            <canvas id="f1-chart"></canvas>
+          </div>
+          <div class="chart-box">
+            <h4>Metrik Radar</h4>
+            <canvas id="radar-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="cm-wrapper card">
+          <div class="card-header">
+            <span class="card-title">Confusion Matrix — <span id="cm-model-name">Random Forest</span></span>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="cm-table" id="cm-table"></table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ABOUT ==================== -->
+      <section id="page-about" class="page">
+        <div class="about-content">
+          <h3>L1-L2 Dual-Brain Mimari</h3>
+          <p>
+            CyberVerifyAI, "İki Beyinli" (Dual-Brain) bir mimari kullanır. L1 katmanı (Sezgisel Motor) gelen ağ
+            trafiğini makine öğrenmesi modelleriyle analiz eder ve saldırı sınıflandırması yapar. L2 katmanı
+            (Mantıksal Denetçi) ise L1'in kararını şirket anayasası, whitelist kuralları ve güvenlik politikalarına
+            göre değerlendirir. Nihai karar — Allow, Drop veya Honeypot — L2 tarafından verilir.
+          </p>
+
+          <div class="arch-visual">
+            <div class="arch-box">
+              <div class="arch-box-icon">🌐</div>
+              <div class="arch-box-title">Ağ Trafiği</div>
+              <div class="arch-box-desc">Gelen paket</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-box l1">
+              <div class="arch-box-icon">🧠</div>
+              <div class="arch-box-title">L1 Motor</div>
+              <div class="arch-box-desc">AI sınıflandırma</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-box l2">
+              <div class="arch-box-icon">⚖️</div>
+              <div class="arch-box-title">L2 Denetçi</div>
+              <div class="arch-box-desc">Anayasal kontrol</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-box allow">
+              <div class="arch-box-icon">✅</div>
+              <div class="arch-box-title">Allow</div>
+              <div class="arch-box-desc">Güvenli trafik</div>
+            </div>
+            <div class="arch-arrow">/</div>
+            <div class="arch-box drop">
+              <div class="arch-box-icon">🚫</div>
+              <div class="arch-box-title">Drop</div>
+              <div class="arch-box-desc">Engelle + log</div>
+            </div>
+            <div class="arch-arrow">/</div>
+            <div class="arch-box honeypot">
+              <div class="arch-box-icon">🍯</div>
+              <div class="arch-box-title">Honeypot</div>
+              <div class="arch-box-desc">Sahte yanıt</div>
+            </div>
+          </div>
+
+          <h3>RECON Modülü</h3>
+          <p>
+            IoT ve IoMT ağ trafiğinden (paket boyutu, inter-arrival time, TCP bayrakları) anomali tespiti yapar.
+            CICIoT2023 ve CICIoMT2024 veri setleriyle eğitilmiştir. 43 sayısal özellik üzerinden milisaniyeler
+            içinde DDoS, DoS, Recon, Mirai, Spoofing saldırılarını sınıflandırır.
+          </p>
+
+          <h3>SQLI Modülü</h3>
+          <p>
+            HTTP isteklerindeki SQL injection saldırılarını tespit eder. TF-IDF vektörleri ve 28 el yapımı
+            özellik (SQL anahtar kelime sayısı, entropi, özel karakter oranı vb.) kullanır. Boolean blind,
+            error-based, time-blind, stacked queries ve inline query saldırı türlerini sınıflandırır.
+          </p>
+
+          <h3>XSS Modülü</h3>
+          <p>
+            Cross-Site Scripting saldırılarını 43 el yapımı özellikle tespit eder. script_tag, event_handler,
+            javascript_protocol, data_uri gibi göstergelerle WAF bypass ve obfuscation tekniklerini algılar.
+            %0 False Positive oranıyla en yüksek performanslı modüldür.
+          </p>
+
+          <h3>Veri Setleri</h3>
+          <p>
+            CICIoT2023 (Kaggle/UNB), CICIoMT2024 (UNB), Web Attacks (HuggingFace), PayloadBox XSS & SQLi
+            (GitHub), SQLMap XML şablonları. Toplam veri boyutu ~100 GB.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
